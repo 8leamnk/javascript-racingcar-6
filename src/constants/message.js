@@ -4,6 +4,10 @@ const MESSAGE = {
     numberOfTries: '시도할 횟수는 몇 회인가요?\n',
   },
 
+  output: {
+    executionResults: '실행 결과',
+  },
+
   error: {
     carsFormat:
       '[ERROR] 특수문자를 제외한 이름을 띄어쓰기 없이 쉼표로 구분해 주세요.',

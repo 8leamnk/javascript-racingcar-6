@@ -3,6 +3,7 @@ import Names from './domain/Names.js';
 import NumberOfTries from './domain/NumberOfTries.js';
 import Forward from './domain/Forward.js';
 import InputView from './view/InputView.js';
+import OutputView from './view/OutputView.js';
 
 class App {
   async play() {
@@ -14,8 +15,7 @@ class App {
     const cars = forward.getCars();
     const executionResults = forward.getExecutionResults();
 
-    Console.print('실행 결과');
-    Console.print(executionResults.join('\n'));
+    OutputView.printExecutionResults(executionResults);
 
     // 우승자를 가려내는 기능
     const winners = [];
