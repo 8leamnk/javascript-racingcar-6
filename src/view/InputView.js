@@ -7,6 +7,12 @@ const InputView = {
 
     return answer;
   },
+
+  async readNumberOfTries() {
+    const answer = await Console.readLineAsync(MESSAGE.input.numberOfTries);
+
+    return answer;
+  },
 };
 
 export default InputView;

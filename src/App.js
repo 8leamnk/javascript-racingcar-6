@@ -7,9 +7,7 @@ class App {
   async play() {
     const carsAnswer = await InputView.readCars();
     const carsInfo = new Names(carsAnswer).getCarsInfo();
-
-    const numberOfTriesAnswer =
-      await Console.readLineAsync('시도할 횟수는 몇 회인가요?\n');
+    const numberOfTriesAnswer = await InputView.readNumberOfTries();
 
     // 유효성 검사
     const NOT_NUMBER_REG_EXP = /[^0-9]/;
