@@ -20,6 +20,9 @@ class App {
         throw new Error('[ERROR] 이름은 1글자 이상 5글자 이하만 가능합니다.');
       }
     });
+
+    const numberOfTriesAnswer =
+      await Console.print('시도할 횟수는 몇 회인가요?\n');
   }
 }
 
