@@ -4,8 +4,12 @@ class Forward {
   #updatedCars = new Map();
 
   constructor(cars, number) {
-    this.#updatedCars = cars;
+    this.#convertToMap(cars);
     this.#moveCars(number);
+  }
+
+  #convertToMap(cars) {
+    this.#updatedCars = new Map(cars.split(',').map((carName) => [carName, 0]));
   }
 
   #moveCars(number) {

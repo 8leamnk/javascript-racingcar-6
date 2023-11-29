@@ -14,11 +14,7 @@ describe('Forward 클래스 테스트', () => {
     // given
     const FORWARD = 4;
     const STOP = 3;
-    const cars = new Map([
-      ['nk', 0],
-      ['nj', 0],
-      ['rk', 0],
-    ]);
+    const cars = 'nk,nj,rk';
     const NUMBER = 2;
     const randoms = [FORWARD, STOP, STOP, FORWARD, STOP, FORWARD];
     const output = new Map([
