@@ -1,5 +1,6 @@
 import { Console } from '@woowacourse/mission-utils';
 import Names from './domain/Names.js';
+import NumberOfTries from './domain/NumberOfTries.js';
 import Forward from './domain/Forward.js';
 import InputView from './view/InputView.js';
 
@@ -7,21 +8,9 @@ class App {
   async play() {
     const carsAnswer = await InputView.readCars();
     const carsInfo = new Names(carsAnswer).getCarsInfo();
-    const numberOfTriesAnswer = await InputView.readNumberOfTries();
-
-    // 유효성 검사
-    const NOT_NUMBER_REG_EXP = /[^0-9]/;
-    if (NOT_NUMBER_REG_EXP.test(numberOfTriesAnswer)) {
-      throw new Error('[ERROR] 숫자를 입력해 주세요.');
-    }
-
-    const numberOfTries = Number(numberOfTriesAnswer);
-
-    if (numberOfTries < 1) {
-      throw new Error('[ERROR] 1 이상의 숫자를 입력해 주세요.');
-    }
-
-    const forward = new Forward(carsInfo, numberOfTries);
+    const numberAnswer = await InputView.readNumberOfTries();
+    const number = new NumberOfTries(numberAnswer).getNumber();
+    const forward = new Forward(carsInfo, number);
     const cars = forward.getCars();
     const executionResults = forward.getExecutionResults();
 

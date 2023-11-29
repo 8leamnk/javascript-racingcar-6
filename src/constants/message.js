@@ -8,6 +8,8 @@ const MESSAGE = {
     carsFormat:
       '[ERROR] 특수문자를 제외한 이름을 띄어쓰기 없이 쉼표로 구분해 주세요.',
     nameLength: '[ERROR] 이름은 1글자 이상 5글자 이하만 가능합니다.',
+    numberFormat: '[ERROR] 숫자를 입력해 주세요.',
+    numberRange: '[ERROR] 1 이상의 숫자를 입력해 주세요.',
   },
 };
 
