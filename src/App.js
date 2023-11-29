@@ -23,6 +23,18 @@ class App {
 
     const numberOfTriesAnswer =
       await Console.print('시도할 횟수는 몇 회인가요?\n');
+
+    // 유효성 검사
+    const NOT_NUMBER_REG_EXP = /[^0-9]/;
+    if (NOT_NUMBER_REG_EXP.test(numberOfTriesAnswer)) {
+      throw new Error('[ERROR] 숫자를 입력해 주세요.');
+    }
+
+    const numberOfTries = Number(numberOfTriesAnswer);
+
+    if (numberOfTries < 1) {
+      throw new Error('[ERROR] 1 이상의 숫자를 입력해 주세요.');
+    }
   }
 }
 
