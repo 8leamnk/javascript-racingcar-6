@@ -28,7 +28,7 @@ class Forward {
     let results = '';
 
     this.#cars.forEach((moveNumber, carName) => {
-      results += `${carName}: ${'-'.repeat(moveNumber)}\n`;
+      results += `${carName} : ${'-'.repeat(moveNumber)}\n`;
     });
 
     this.#executionResults.push(results);

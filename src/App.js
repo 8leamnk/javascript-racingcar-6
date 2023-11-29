@@ -3,7 +3,7 @@ import Forward from './domain/Forward.js';
 
 class App {
   async play() {
-    const carsAnswer = await Console.print(
+    const carsAnswer = await Console.readLineAsync(
       '경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n',
     );
 
@@ -23,7 +23,7 @@ class App {
     });
 
     const numberOfTriesAnswer =
-      await Console.print('시도할 횟수는 몇 회인가요?\n');
+      await Console.readLineAsync('시도할 횟수는 몇 회인가요?\n');
 
     // 유효성 검사
     const NOT_NUMBER_REG_EXP = /[^0-9]/;
@@ -38,7 +38,7 @@ class App {
     }
 
     const forward = new Forward(carsAnswer, numberOfTries);
-    const cars = forward.getUpdatedCars();
+    const cars = forward.getCars();
     const executionResults = forward.getExecutionResults();
 
     Console.print('실행 결과');
@@ -53,6 +53,8 @@ class App {
         winners.push(carName);
       }
     });
+
+    Console.print(`최종 우승자 : ${winners.join(', ')}`);
   }
 }
 
