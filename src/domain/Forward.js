@@ -1,31 +1,52 @@
 import { Random } from '@woowacourse/mission-utils';
 
 class Forward {
-  #updatedCars = new Map();
+  #cars = new Map();
 
-  constructor(cars, number) {
-    this.#convertToMap(cars);
+  #executionResults = [];
+
+  constructor(carsAnswer, number) {
+    this.#convertToMap(carsAnswer);
     this.#moveCars(number);
   }
 
-  #convertToMap(cars) {
-    this.#updatedCars = new Map(cars.split(',').map((carName) => [carName, 0]));
+  #convertToMap(carsAnswer) {
+    this.#cars = new Map(carsAnswer.split(',').map((carName) => [carName, 0]));
+  }
+
+  #moveOneTime() {
+    this.#cars.forEach((moveNumber, carName) => {
+      const integer = Random.pickNumberInRange(0, 9);
+
+      if (integer >= 4) {
+        this.#cars.set(carName, moveNumber + 1);
+      }
+    });
+  }
+
+  #recordOneTime() {
+    let results = '';
+
+    this.#cars.forEach((moveNumber, carName) => {
+      results += `${carName}: ${'-'.repeat(moveNumber)}\n`;
+    });
+
+    this.#executionResults.push(results);
   }
 
   #moveCars(number) {
     for (let i = 0; i < number; i += 1) {
-      this.#updatedCars.forEach((moveNumber, carName) => {
-        const integer = Random.pickNumberInRange(0, 9);
-
-        if (integer >= 4) {
-          this.#updatedCars.set(carName, moveNumber + 1);
-        }
-      });
+      this.#moveOneTime();
+      this.#recordOneTime();
     }
   }
 
-  getUpdatedCars() {
-    return this.#updatedCars;
+  getExecutionResults() {
+    return this.#executionResults;
+  }
+
+  getCars() {
+    return this.#cars;
   }
 }
 

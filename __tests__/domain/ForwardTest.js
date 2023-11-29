@@ -26,7 +26,7 @@ describe('Forward 클래스 테스트', () => {
     mockRandoms([...randoms]);
 
     // when
-    const updatedCars = new Forward(cars, NUMBER).getUpdatedCars();
+    const updatedCars = new Forward(cars, NUMBER).getCars();
 
     // then
     expect(updatedCars).toEqual(output);

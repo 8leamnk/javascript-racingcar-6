@@ -1,4 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
+import Forward from './domain/Forward.js';
 
 class App {
   async play() {
@@ -35,6 +36,13 @@ class App {
     if (numberOfTries < 1) {
       throw new Error('[ERROR] 1 이상의 숫자를 입력해 주세요.');
     }
+
+    const forward = new Forward(carsAnswer, numberOfTries);
+    const cars = forward.getUpdatedCars();
+    const executionResults = forward.getExecutionResults();
+
+    Console.print('실행 결과');
+    Console.print(executionResults.join('\n'));
   }
 }
 
