@@ -43,6 +43,16 @@ class App {
 
     Console.print('실행 결과');
     Console.print(executionResults.join('\n'));
+
+    // 우승자를 가려내는 기능
+    const winners = [];
+    const max = Math.max(...cars.values());
+
+    cars.forEach((moveNumber, carName) => {
+      if (moveNumber === max) {
+        winners.push(carName);
+      }
+    });
   }
 }
 
