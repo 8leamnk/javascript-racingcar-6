@@ -1,11 +1,10 @@
 import { Console } from '@woowacourse/mission-utils';
 import Forward from './domain/Forward.js';
+import InputView from './view/InputView.js';
 
 class App {
   async play() {
-    const carsAnswer = await Console.readLineAsync(
-      '경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n',
-    );
+    const carsAnswer = await InputView.readCars();
 
     // 유효성 검사
     const REG_EXP = /[^0-9|가-힣|a-z|A-Z|,]/;
