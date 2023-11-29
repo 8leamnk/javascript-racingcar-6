@@ -1,4 +1,3 @@
-import { Console } from '@woowacourse/mission-utils';
 import Names from './domain/Names.js';
 import NumberOfTries from './domain/NumberOfTries.js';
 import Forward from './domain/Forward.js';
@@ -18,8 +17,7 @@ class App {
     const winner = new Winner(cars).getWinner();
 
     OutputView.printExecutionResults(executionResults);
-
-    Console.print(`최종 우승자 : ${winner.join(', ')}`);
+    OutputView.printWinner(winner);
   }
 }
 

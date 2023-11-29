@@ -6,6 +6,7 @@ const MESSAGE = {
 
   output: {
     executionResults: '실행 결과',
+    winner: '최종 우승자 : ',
   },
 
   error: {
@@ -17,6 +18,9 @@ const MESSAGE = {
   },
 };
 
+Object.freeze(MESSAGE.input);
+Object.freeze(MESSAGE.output);
+Object.freeze(MESSAGE.error);
 Object.freeze(MESSAGE);
 
 export default MESSAGE;

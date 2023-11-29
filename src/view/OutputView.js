@@ -6,6 +6,10 @@ const OutputView = {
     Console.print(MESSAGE.output.executionResults);
     Console.print(executionResults.join('\n'));
   },
+
+  printWinner(winner) {
+    Console.print(`${MESSAGE.output.winner}${winner.join(', ')}`);
+  },
 };
 
 export default OutputView;
