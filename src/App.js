@@ -2,6 +2,7 @@ import { Console } from '@woowacourse/mission-utils';
 import Names from './domain/Names.js';
 import NumberOfTries from './domain/NumberOfTries.js';
 import Forward from './domain/Forward.js';
+import Winner from './domain/Winner.js';
 import InputView from './view/InputView.js';
 import OutputView from './view/OutputView.js';
 
@@ -14,20 +15,11 @@ class App {
     const forward = new Forward(carsInfo, number);
     const cars = forward.getCars();
     const executionResults = forward.getExecutionResults();
+    const winner = new Winner(cars).getWinner();
 
     OutputView.printExecutionResults(executionResults);
 
-    // 우승자를 가려내는 기능
-    const winners = [];
-    const max = Math.max(...cars.values());
-
-    cars.forEach((moveNumber, carName) => {
-      if (moveNumber === max) {
-        winners.push(carName);
-      }
-    });
-
-    Console.print(`최종 우승자 : ${winners.join(', ')}`);
+    Console.print(`최종 우승자 : ${winner.join(', ')}`);
   }
 }
 
