@@ -6,7 +6,7 @@ class Forward {
   #executionResults = [];
 
   constructor(carsInfo, number) {
-    this.#cars = carsInfo;
+    this.#cars = new Map([...carsInfo]);
     this.#moveCars(number);
   }
 
