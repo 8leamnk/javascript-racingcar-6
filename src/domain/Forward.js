@@ -5,13 +5,9 @@ class Forward {
 
   #executionResults = [];
 
-  constructor(carsAnswer, number) {
-    this.#convertToMap(carsAnswer);
+  constructor(carsInfo, number) {
+    this.#cars = carsInfo;
     this.#moveCars(number);
-  }
-
-  #convertToMap(carsAnswer) {
-    this.#cars = new Map(carsAnswer.split(',').map((carName) => [carName, 0]));
   }
 
   #moveOneTime() {
