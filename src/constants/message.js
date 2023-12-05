@@ -4,6 +4,11 @@ const MESSAGE = {
     number: '시도할 횟수는 몇 회인가요?\n',
   },
 
+  output: {
+    execution: '\n실행 결과',
+    winner: '최종 우승자 : ',
+  },
+
   error: {
     carsFormat: '[ERROR] 유효하지 않은 자동차 이름입니다.',
     nameLength:
@@ -14,6 +19,7 @@ const MESSAGE = {
 };
 
 Object.freeze(MESSAGE.input);
+Object.freeze(MESSAGE.output);
 Object.freeze(MESSAGE.error);
 Object.freeze(MESSAGE);
 
