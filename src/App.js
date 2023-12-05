@@ -6,7 +6,16 @@ import InputView from './view/InputView.js';
 import OutputView from './view/OutputView.js';
 
 class App {
+  #carsDetails;
+
+  #winner;
+
   async play() {
+    await this.#startGame();
+    this.#printResult();
+  }
+
+  async #startGame() {
     const carsAnswer = await InputView.readCars();
     const cars = new Cars(carsAnswer).getCars();
     const numberAnswer = await InputView.readNumber();
@@ -15,8 +24,13 @@ class App {
     const { carsInfo, carsDetails } = move.getCarsInfo();
     const winner = new Winner(carsInfo).getWinner();
 
-    OutputView.printExecution(carsDetails);
-    OutputView.printWinner(winner);
+    this.#carsDetails = carsDetails;
+    this.#winner = winner;
+  }
+
+  #printResult() {
+    OutputView.printExecution(this.#carsDetails);
+    OutputView.printWinner(this.#winner);
   }
 }
 
