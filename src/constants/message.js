@@ -8,6 +8,8 @@ const MESSAGE = {
     carsFormat: '[ERROR] 유효하지 않은 자동차 이름입니다.',
     nameLength:
       '[ERROR] 자동차의 이름은 한 글자 이상 다섯 글자 이하로만 입력해 주세요.',
+    notNumber: '[ERROR] 숫자만 입력해 주세요.',
+    numberRange: '[ERROR] 1 이상의 숫자만 입력해 주세요.',
   },
 };
 
